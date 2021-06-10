@@ -1,0 +1,31 @@
+CREATE TABLE views
+(
+  event_datetime DATE NOT NULL,
+  user_id INT NOT NULL,
+  prezi_id VARCHAR(12) NOT NULL,
+  session_id VARCHAR(31) NOT NULL,
+  view_time INT NOT NULL
+);
+
+CREATE TABLE users
+(
+  user_id INT NOT NULL,
+  country_name VARCHAR(127) NOT NULL
+);
+
+INSERT INTO views VALUES ('2018-05-27', 28, 'asythk', 'yuh45hj', 2040),
+('2018-05-30', 29, 'ascghk', 'yuhhguh', 2080);
+
+INSERT INTO users VALUES (28, 'Canada'),(29, 'El Salvador');
+
+SELECT * FROM users;
+
+SELECT COALESCE(country_name, 'Hungary')
+  FROM users AS u
+  LEFT JOIN views AS v
+  ON u.user_id = v.user_id
+  WHERE event_datetime >= '2018-05-01' AND event_datetime < '2018-06-01'
+  GROUP BY COALESCE(country_name, 'Hungary')
+  ORDER BY sum(view_time) DESC, COALESCE(country_name, 'Hungary')
+  LIMIT 3
+;
