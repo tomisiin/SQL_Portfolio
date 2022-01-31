@@ -1,3 +1,8 @@
+##Dataset can be found by opening the SQL Dashboard in BigQuery and searching for Austin bikeshare in the Public datasets.
+##Table used here is the bikeshare_trips in the austin_bikeshare dataset
+
+
+
 WITH longest_used_bike as(
     SELECT 
         bikeid,
