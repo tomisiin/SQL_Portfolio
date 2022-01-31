@@ -1,3 +1,7 @@
+##This snippet is from an interview I had with Prezi, an analytics company in Budapest, Hungary.
+
+##This first SQL statement is to create a table called views
+
 CREATE TABLE views
 (
   event_datetime DATE NOT NULL,
@@ -7,16 +11,28 @@ CREATE TABLE views
   view_time INT NOT NULL
 );
 
+
+##This SQL statement creates a table called users
+
 CREATE TABLE users
 (
   user_id INT NOT NULL,
   country_name VARCHAR(127) NOT NULL
 );
 
+
+##This is an INSERT statement to insert values into the views table
+
 INSERT INTO views VALUES ('2018-05-27', 28, 'asythk', 'yuh45hj', 2040),
 ('2018-05-30', 29, 'ascghk', 'yuhhguh', 2080);
 
+
+##This is an INSERT statement to insert values into the users table
+
 INSERT INTO users VALUES (28, 'Canada'),(29, 'El Salvador');
+
+
+##This statement SELECT all the columns in the users table
 
 SELECT * FROM users;
 
